@@ -12,18 +12,27 @@ let algeria = new Country("Algeria", "Arabic and Berber", "Sup", ["blue", "yello
 
 
 function SwitchCountry() {
-    let input = "USA";
-    let country;
+    let result= document.getElementById("CountryList");
+    let choice = result.value;
+    if(choice === "USA"){
+         printCountry(usa)
+    }
+    else if(choice === "Mexico") {
+        printCountry(mexico);
+    }
+    else if(choice === "Algeria") {
+         printCountry(algeria);
+    }
+}
+function printCountry(Country){
+        document.getElementById("CountryName").innerText=`${Country.name}`;
+        document.getElementById("OfficialLanguage").innerText=`${Country.lang}`;
+        document.getElementById("HelloWorld").innerText=`${Country.greeting}`;
+        DisplayColors(Country.colors);
+}
 
-    if (input === "USA") {
-        //set country to usa 
-        country = usa;
-    }
-    else if (input === "Mexico") {
-        country = mexico;
-    }
-    else if (input === "Algeria") {
-        country = algeria;
-    }
-
+function DisplayColors(color){
+    document.getElementById("Color1").style.backgroundColor = color[0];
+    document.getElementById("Color2").style.backgroundColor = color[1];
+    document.getElementById("Color3").style.backgroundColor = color[2];
 }
